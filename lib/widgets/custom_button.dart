@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
-
   final Color buttonColor;
   final VoidCallback buttonOnTap;
   final IconData buttonIcon;
