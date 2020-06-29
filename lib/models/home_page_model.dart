@@ -2,8 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-class HomePageModel {
-  String pageTitle = 'Match the color';
+class HomePageModel extends ChangeNotifier {
+  String pageTitle = 'Match the colors';
   String newColorsButtonTitle = 'New colour'.toUpperCase();
   String answerButtonTitle = 'Show answer'.toUpperCase();
 
@@ -21,19 +21,19 @@ class HomePageModel {
   get red => _red;
   set red(value) {
     _red = value.toInt();
-//    notifyListeners();
+    notifyListeners();
   }
 
   get green => _green;
   set green(value) {
     _green = value.toInt();
-//    notifyListeners();
+    notifyListeners();
   }
 
   get blue => _blue;
   set blue(value) {
     _blue = value.toInt();
-//    notifyListeners();
+    notifyListeners();
   }
 
   get changableColor => Color.fromARGB(255, _red, _green, _blue);
@@ -53,7 +53,7 @@ class HomePageModel {
 
   void newColors() {
     setTargetColor();
-//    notifyListeners();
+    notifyListeners();
   }
 
   void colorToString() {

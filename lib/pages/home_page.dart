@@ -1,14 +1,16 @@
+import 'package:color_match/models/home_page_model.dart';
 import 'package:color_match/widgets/color_setter.dart';
 import 'package:color_match/widgets/preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Match the color'),
+        title: Text(context.select((HomePageModel p) => p.pageTitle)),
       ),
       body: OrientationBuilder(builder: (context, orientation) {
         return Flex(
