@@ -1,5 +1,6 @@
 import 'package:color_match/models/home_page_model.dart';
 import 'package:color_match/widgets/color_setter.dart';
+import 'package:color_match/widgets/custom_text_button.dart';
 import 'package:color_match/widgets/preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -28,7 +29,22 @@ class HomePage extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
-                    ButtonBar(),
+                    ButtonBar(
+                      alignment: MainAxisAlignment.spaceBetween,
+                      buttonPadding: EdgeInsets.symmetric(horizontal: 16.0),
+                      children: <Widget>[
+                        CustomTextButton(
+                          text: context.select(
+                              (HomePageModel v) => v.newColorsButtonTitle),
+                          onPressed: () {},
+                        ),
+                        CustomTextButton(
+                          text: context
+                              .select((HomePageModel v) => v.answerButtonTitle),
+                          onPressed: () {},
+                        ),
+                      ],
+                    ),
                     Consumer<HomePageModel>(
                       builder: (_, model, __) => ColorSetter(
                         color: Colors.red,

@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 
 class HomePageModel extends ChangeNotifier {
   String pageTitle = 'Match the colors';
-  String newColorsButtonTitle = 'New colour'.toUpperCase();
-  String answerButtonTitle = 'Show answer'.toUpperCase();
+  String newColorsButtonTitle = 'New color';
+  String answerButtonTitle = 'Show answer';
 
   Color backgroundColor = Colors.grey[100];
 

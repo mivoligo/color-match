@@ -1,4 +1,4 @@
-import 'package:color_match/widgets/custom_button.dart';
+import 'package:color_match/widgets/custom_icon_button.dart';
 import 'package:flutter/material.dart';
 
 class ColorSetter extends StatelessWidget {
@@ -32,7 +32,7 @@ class ColorSetter extends StatelessWidget {
       child: Row(
         children: <Widget>[
           SizedBox(width: 16),
-          CustomButton(
+          CustomIconButton(
             buttonColor: sliderValue == sliderMin ? Colors.grey[300] : color,
             buttonIcon: Icons.remove,
             buttonOnTap: sliderValue == sliderMin ? null : minusOnPressed,
@@ -47,7 +47,7 @@ class ColorSetter extends StatelessWidget {
               onChanged: onChanged,
             ),
           ),
-          CustomButton(
+          CustomIconButton(
             buttonColor: sliderValue == sliderMax ? Colors.grey[300] : color,
             buttonIcon: Icons.add,
             buttonOnTap: sliderValue == sliderMax ? null : plusOnPressed,
