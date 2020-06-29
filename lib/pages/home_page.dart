@@ -8,6 +8,8 @@ import 'package:provider/provider.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+//    final _homePageModel = Provider.of<HomePageModel>(context, listen: false);
+    print('rebuilding');
     return Scaffold(
       appBar: AppBar(
         title: Text(context.select((HomePageModel p) => p.pageTitle)),
@@ -27,26 +29,32 @@ class HomePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
                     ButtonBar(),
-                    ColorSetter(
-                      color: Colors.red,
-                      minusOnPressed: null,
-                      plusOnPressed: null,
-                      sliderValue: 100,
-                      onChanged: null,
+                    Consumer<HomePageModel>(
+                      builder: (_, model, __) => ColorSetter(
+                        color: Colors.red,
+                        minusOnPressed: () => model.red--,
+                        plusOnPressed: () => model.red++,
+                        sliderValue: model.red.toDouble(),
+                        onChanged: (value) => model.red = value,
+                      ),
                     ),
-                    ColorSetter(
-                      color: Colors.green,
-                      minusOnPressed: null,
-                      plusOnPressed: null,
-                      sliderValue: 100,
-                      onChanged: null,
+                    Consumer<HomePageModel>(
+                      builder: (_, model, __) => ColorSetter(
+                        color: Colors.green,
+                        minusOnPressed: () => model.green--,
+                        plusOnPressed: () => model.green++,
+                        sliderValue: model.green.toDouble(),
+                        onChanged: (value) => model.green = value,
+                      ),
                     ),
-                    ColorSetter(
-                      color: Colors.blue,
-                      minusOnPressed: null,
-                      plusOnPressed: null,
-                      sliderValue: 100,
-                      onChanged: null,
+                    Consumer<HomePageModel>(
+                      builder: (_, model, __) => ColorSetter(
+                        color: Colors.blue,
+                        minusOnPressed: () => model.blue--,
+                        plusOnPressed: () => model.blue++,
+                        sliderValue: model.blue.toDouble(),
+                        onChanged: (value) => model.blue = value,
+                      ),
                     ),
                   ],
                 ),
