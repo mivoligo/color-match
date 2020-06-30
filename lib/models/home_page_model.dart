@@ -9,7 +9,12 @@ class HomePageModel extends ChangeNotifier {
 
   Color backgroundColor = Colors.grey[100];
 
-  Color targetColor;
+  Color _targetColor = Colors.pink;
+  Color get targetColor => _targetColor;
+  void setTargetColor() {
+    _targetColor = Color.fromARGB(
+        255, _random.nextInt(256), _random.nextInt(256), _random.nextInt(256));
+  }
 
   String colorName;
 
@@ -41,14 +46,9 @@ class HomePageModel extends ChangeNotifier {
   get isMatch => targetColor == changableColor;
 
   void showAnswer() {
-    red = targetColor.red;
-    green = targetColor.green;
-    blue = targetColor.blue;
-  }
-
-  void setTargetColor() {
-    targetColor = Color.fromARGB(
-        255, _random.nextInt(256), _random.nextInt(256), _random.nextInt(256));
+    red = _targetColor.red;
+    green = _targetColor.green;
+    blue = _targetColor.blue;
   }
 
   void newColors() {
@@ -57,9 +57,9 @@ class HomePageModel extends ChangeNotifier {
   }
 
   void colorToString() {
-    String _r = targetColor.red.toRadixString(16).padLeft(2, '0');
-    String _g = targetColor.green.toRadixString(16).padLeft(2, '0');
-    String _b = targetColor.blue.toRadixString(16).padLeft(2, '0');
+    String _r = _targetColor.red.toRadixString(16).padLeft(2, '0');
+    String _g = _targetColor.green.toRadixString(16).padLeft(2, '0');
+    String _b = _targetColor.blue.toRadixString(16).padLeft(2, '0');
     colorName = '#$_r$_g$_b';
   }
 }

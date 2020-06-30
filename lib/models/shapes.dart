@@ -47,10 +47,10 @@ class RandomShapes extends ChangeNotifier {
 
   IconData _shape = Icons.bookmark;
   IconData get shape => _shape;
-  set shape(value) {
-    _shape = value;
-    notifyListeners();
-  }
+//  set shape(value) {
+//    _shape = value;
+//    notifyListeners();
+//  }
 
   void randomShape() {
     _shape = _shapeList[_random.nextInt(_shapeList.length)];

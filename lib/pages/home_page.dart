@@ -10,8 +10,8 @@ import 'package:provider/provider.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final _homePageModel = Provider.of<HomePageModel>(context, listen: false);
-    _homePageModel.setTargetColor();
+//    final _homePageModel = Provider.of<HomePageModel>(context, listen: false);
+//    _homePageModel.setTargetColor();
     print('rebuilding');
     return Scaffold(
       appBar: AppBar(
