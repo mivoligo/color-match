@@ -12,15 +12,17 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _homePageModel = Provider.of<HomePageModel>(context, listen: false);
+    final _shapeModel = Provider.of<RandomShapes>(context, listen: false);
     _homePageModel.setTargetColor();
-    print('rebuilding');
+//    print('rebuilding');
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
         centerTitle: true,
-        title: Text(context.select((HomePageModel v) => v.pageTitle)),
+        title: Text(_homePageModel.pageTitle),
       ),
       body: OrientationBuilder(builder: (context, orientation) {
+        // Flex widget simplifies creating landscape and portrait layout
         return Flex(
           direction: orientation == Orientation.portrait
               ? Axis.vertical
@@ -55,18 +57,16 @@ class HomePage extends StatelessWidget {
                       buttonPadding: EdgeInsets.symmetric(horizontal: 16.0),
                       children: <Widget>[
                         CustomTextButton(
-                          text: context.select(
-                              (HomePageModel v) => v.newColorsButtonTitle),
+                          text: _homePageModel.newColorsButtonTitle,
                           onPressed: () {
-                            context.read<HomePageModel>().newColors();
-                            context.read<RandomShapes>().randomShape();
+                            _homePageModel.newColors();
+                            _shapeModel.randomShape();
                           },
                         ),
                         CustomTextButton(
-                          text: context
-                              .select((HomePageModel v) => v.answerButtonTitle),
+                          text: _homePageModel.answerButtonTitle,
                           onPressed: () {
-                            context.read<HomePageModel>().showAnswer();
+                            _homePageModel.showAnswer();
                           },
                         ),
                       ],
