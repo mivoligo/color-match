@@ -14,7 +14,7 @@ class HomePage extends StatelessWidget {
     print('rebuilding');
     return Scaffold(
       appBar: AppBar(
-        title: Text(context.select((HomePageModel p) => p.pageTitle)),
+        title: Text(context.select((HomePageModel v) => v.pageTitle)),
       ),
       body: OrientationBuilder(builder: (context, orientation) {
         return Flex(
