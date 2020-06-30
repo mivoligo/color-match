@@ -1,4 +1,5 @@
 import 'package:color_match/models/home_page_model.dart';
+import 'package:color_match/models/shapes.dart';
 import 'package:color_match/widgets/color_setter.dart';
 import 'package:color_match/widgets/custom_text_button.dart';
 import 'package:color_match/widgets/preview.dart';
@@ -26,7 +27,7 @@ class HomePage extends StatelessWidget {
               child: Preview(
                 targetColor: context.watch<HomePageModel>().targetColor,
                 changableColor: context.watch<HomePageModel>().changableColor,
-                iconData: Icons.bookmark,
+                iconData: context.watch<RandomShapes>().shape,
               ),
             ),
             Expanded(
@@ -43,6 +44,7 @@ class HomePage extends StatelessWidget {
                               (HomePageModel v) => v.newColorsButtonTitle),
                           onPressed: () {
                             context.read<HomePageModel>().newColors();
+                            context.read<RandomShapes>().randomShape();
                           },
                         ),
                         CustomTextButton(

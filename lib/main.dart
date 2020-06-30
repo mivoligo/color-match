@@ -1,4 +1,5 @@
 import 'package:color_match/models/home_page_model.dart';
+import 'package:color_match/models/shapes.dart';
 import 'package:color_match/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -8,6 +9,7 @@ void main() {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => HomePageModel()),
+        ChangeNotifierProvider(create: (_) => RandomShapes()),
       ],
       child: MyApp(),
     ),
