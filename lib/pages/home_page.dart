@@ -3,6 +3,7 @@ import 'package:color_match/models/shapes.dart';
 import 'package:color_match/widgets/color_setter.dart';
 import 'package:color_match/widgets/custom_text_button.dart';
 import 'package:color_match/widgets/preview.dart';
+import 'package:color_match/widgets/result.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
@@ -10,8 +11,8 @@ import 'package:provider/provider.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-//    final _homePageModel = Provider.of<HomePageModel>(context, listen: false);
-//    _homePageModel.setTargetColor();
+    final _homePageModel = Provider.of<HomePageModel>(context, listen: false);
+    _homePageModel.setTargetColor();
     print('rebuilding');
     return Scaffold(
       appBar: AppBar(
@@ -24,10 +25,22 @@ class HomePage extends StatelessWidget {
               : Axis.horizontal,
           children: <Widget>[
             Expanded(
-              child: Preview(
-                targetColor: context.watch<HomePageModel>().targetColor,
-                changableColor: context.watch<HomePageModel>().changableColor,
-                iconData: context.watch<RandomShapes>().shape,
+              child: Consumer2<HomePageModel, RandomShapes>(
+                builder: (_, homePageModel, randomShapesModel, __) {
+                  if (homePageModel.isMatch) {
+                    homePageModel.colorToString();
+                    return Result(
+                      resultColor: homePageModel.targetColor,
+                      iconData: randomShapesModel.shape,
+                      colorName: homePageModel.colorName,
+                    );
+                  }
+                  return Preview(
+                    targetColor: homePageModel.targetColor,
+                    iconData: randomShapesModel.shape,
+                    changableColor: homePageModel.changableColor,
+                  );
+                },
               ),
             ),
             Expanded(

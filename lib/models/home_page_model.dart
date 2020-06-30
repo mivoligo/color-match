@@ -9,7 +9,7 @@ class HomePageModel extends ChangeNotifier {
 
   Color backgroundColor = Colors.grey[100];
 
-  Color _targetColor = Colors.pink;
+  Color _targetColor;
   Color get targetColor => _targetColor;
   void setTargetColor() {
     _targetColor = Color.fromARGB(
