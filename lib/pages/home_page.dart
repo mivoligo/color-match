@@ -9,7 +9,8 @@ import 'package:provider/provider.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-//    final _homePageModel = Provider.of<HomePageModel>(context, listen: false);
+    final _homePageModel = Provider.of<HomePageModel>(context, listen: false);
+    _homePageModel.setTargetColor();
     print('rebuilding');
     return Scaffold(
       appBar: AppBar(
@@ -22,7 +23,11 @@ class HomePage extends StatelessWidget {
               : Axis.horizontal,
           children: <Widget>[
             Expanded(
-              child: Preview(),
+              child: Preview(
+                targetColor: context.watch<HomePageModel>().targetColor,
+                changableColor: context.watch<HomePageModel>().changableColor,
+                iconData: Icons.bookmark,
+              ),
             ),
             Expanded(
               child: Container(
@@ -36,12 +41,16 @@ class HomePage extends StatelessWidget {
                         CustomTextButton(
                           text: context.select(
                               (HomePageModel v) => v.newColorsButtonTitle),
-                          onPressed: () {},
+                          onPressed: () {
+                            context.read<HomePageModel>().newColors();
+                          },
                         ),
                         CustomTextButton(
                           text: context
                               .select((HomePageModel v) => v.answerButtonTitle),
-                          onPressed: () {},
+                          onPressed: () {
+                            context.read<HomePageModel>().showAnswer();
+                          },
                         ),
                       ],
                     ),
