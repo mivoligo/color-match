@@ -16,6 +16,8 @@ class HomePage extends StatelessWidget {
     print('rebuilding');
     return Scaffold(
       appBar: AppBar(
+        elevation: 0.0,
+        centerTitle: true,
         title: Text(context.select((HomePageModel v) => v.pageTitle)),
       ),
       body: OrientationBuilder(builder: (context, orientation) {
