@@ -6,5 +6,5 @@ Very hard game with no rewards.
 ![App interaction](https://raw.githubusercontent.com/mivoligo/resources/master/color_match_interaction.gif)
 
 ## Why
-One of my personal project to get familiar with [Flutter] (https://flutter.dev "Flutter website").
+One of my personal project to get familiar with [Flutter](https://flutter.dev "Flutter website").
   
