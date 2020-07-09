@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Color Match
+Comment=Very hard game with no rewards
+Icon=${SNAP}/meta/gui/icon.png
+Exec=color-match
+Terminal=false
+Type=Application
+Categories=Games;
+Keywords=Color;
