@@ -1,0 +1,15 @@
+name: color-match
+version: 1.0.1
+summary: Color Match
+description: Very hard game with no rewards.
+confinement: strict
+base: core18
+apps:
+  color-match:
+    command: color_match
+    extensions: [flutter-master]
+parts:
+  color-match:
+    source: .
+    plugin: flutter
+    flutter-target: lib/main.dart # app's main entry-point file
